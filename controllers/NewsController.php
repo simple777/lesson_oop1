@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../models/news.php';
+//require_once __DIR__.'/../models/news.php'; //autoload
 
 class NewsController
 {
