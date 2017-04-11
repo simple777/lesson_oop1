@@ -14,6 +14,12 @@ class News
         $sql = 'SELECT `id`, `title`, `text`  from `news`';
         $class = 'News';
 
-        return $db->query($sql, $class);
+        return $db->queryAll($sql, $class);
+    }
+
+    public static function getOne($id)
+    {
+        $db = new DB;
+        return $db->queryOne('SELECT `id`, `title`, `text`  from `news` WHERE id='.(int)$id, 'News');
     }
 }

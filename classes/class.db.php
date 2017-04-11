@@ -8,7 +8,7 @@ class DB
         mysql_select_db('mvc');
     }
 
-    public function query ($sql, $class = 'stdClass')
+    public function queryAll ($sql, $class = 'stdClass')
     {
         $res = mysql_query($sql);
         if (false === $res)
@@ -21,4 +21,10 @@ class DB
         }
         return $ret;
     }
+
+    public function queryOne ($sql, $class='stdClass')
+{
+    $ret = $this->queryAll($sql, $class);
+    return $ret[0];
+}
 }
