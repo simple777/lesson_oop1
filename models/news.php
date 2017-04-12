@@ -1,25 +1,14 @@
 <?php
 
-require_once __DIR__.'/../classes/class.db.php';
+//require_once __DIR__.'/../classes/db.php'; //autoload
 
-class News
+class News extends AbstractModel
 {
     public $id;
     public $title;
     public $text;
 
-    public static function getAll ()
-    {
-        $db = new DB;
-        $sql = 'SELECT `id`, `title`, `text`  from `news`';
-        $class = 'News';
+    protected static $table = 'news';
+    protected static $class = 'News';
 
-        return $db->queryAll($sql, $class);
-    }
-
-    public static function getOne($id)
-    {
-        $db = new DB;
-        return $db->queryOne('SELECT `id`, `title`, `text`  from `news` WHERE id='.(int)$id, 'News');
-    }
 }
